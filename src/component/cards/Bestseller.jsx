@@ -7,7 +7,7 @@ const Bestseller = ({ image, title, offprice, price, offer, ratting, hot }) => {
                 <div className="group">
                 <img className='hover:opacity-30' src={`/public/assets/Images/${image}`} alt="image" />
                     <div className="absolute flex  gap-2 top-[121px] left-[100px] group-hover:w-[113px] w-0 opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in ">
-                        <img className='bg-light-white border-2 border-light-blue  rounded-4xl p-2' src="/public/assets/Icon/hearts.svg" alt="heart" />
+                        <img className='bg-light-white  border-2 border-light-blue  rounded-4xl p-2' src="/public/assets/Icon/hearts.svg" alt="heart" />
                         <img className='bg-light-white border-2 border-light-blue rounded-4xl p-2' src="/public/assets/Icon/cart2.svg" alt="heart" />
                     </div>
                     </div>
