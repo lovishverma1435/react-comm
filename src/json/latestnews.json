@@ -1,0 +1,20 @@
+[
+    {
+        "date":"01 Jan, 2015",
+        "image":"Nikelogo.svg",
+        "title":"Fashion Industry",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+        "date":"01 Jan, 2015",
+        "image":"figmalogo.svg",
+        "title":"Best Design Tools",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+        "date":"01 Jan, 2015",
+        "image":"kronoslogo.svg",
+        "title":"Best Design Tools",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    }
+]

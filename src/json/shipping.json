@@ -1,0 +1,17 @@
+[
+    {
+        "image":"shipping.svg",
+        "title":"FREE SHIPPING",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+        "image":"refund.svg",
+        "title":"100% REFUND",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+        "image":"support.svg",
+        "title":"SUPPORT 24/7",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    }
+]

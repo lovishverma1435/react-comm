@@ -1,0 +1,22 @@
+[
+    {
+        "menu":"HOME",
+        "path":"/"
+    },
+    {
+        "menu":"BAGS",
+        "path":"/bags"
+    },
+    {
+        "menu":"SNEAKERS",
+        "path":"/sneakers"
+    },
+    {
+        "menu":"BELT",
+        "path":"/belt"
+    },
+    {
+        "menu":"CONTACT",
+        "path":"/contact"
+    }
+]
