@@ -1,67 +1,144 @@
-[
-    {
-        "image":"bestProductone.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off",
-        "hot":"HOT"
-    },
-    {
-        "image":"bestProducttwo.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestProductthree.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestproductfour.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestproductfive.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestproductone.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestproductsix.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    },
-    {
-        "image":"bestProductseven.png",
-        "title":"Nike Air Max 270 React",
-        "ratting":"rate.svg",
-        "offprice":"$299,43",
-        "price":"$534,33",
-        "offer":"24% Off"
-    }
-]
+{
+    "dtaa":[
+        {
+            "image":"bestProductone.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off",
+            "hot":"HOT"
+        },
+        {
+            "image":"bestProducttwo.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestProductthree.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductfour.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductfive.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductone.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductsix.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestProductseven.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        }
+    ],
+    "data2":[
+        {
+            "image":"bestProductone.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off",
+            "hot":"HOT"
+        },
+        {
+            "image":"bestProducttwo.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestProductthree.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductfour.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductfive.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductone.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestproductsix.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestProductseven.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        },
+        {
+            "image":"bestProductseven.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off"
+        }
+    ]
+}

@@ -14,7 +14,7 @@ const Adidasshoes = ({ data }) => {
                                     <Link to={item.path}>
                                     {
 
-                                        <Adidasshoe image={item.image} title={item.title} details={item.details} shop={item.shop} />
+                                        <Adidasshoe image={item.image} max={"592px"} title={item.title} details={item.details} shop={item.shop} titleclass={"font-poppins font-medium text-[55px] text-white"} imageclass={"absolute -top-[91px] -right-28 max-w-[794px] w-full "} detailsclass={"font-poppins font-normal text-2xl  text-white"} sizeclass={"flex flex-col max-w-[592px] w-full py-[163px] gap-3 "}/>
                                     }
                                     </Link>
                                 </div>
@@ -23,6 +23,7 @@ const Adidasshoes = ({ data }) => {
                     </div>
                 </div>
             </div>
+            
         </>
     )
 }

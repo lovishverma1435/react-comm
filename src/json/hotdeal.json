@@ -1,0 +1,38 @@
+{
+    "heading":[
+        {
+           "title":"HotDeals"  
+        }
+    ],
+    "titles":[
+        {
+            "name":"Nike",
+            "count":"2"
+        },
+        {
+            "name":"Airmax",
+            "count":"48"
+        },
+        {
+            "name":"Nike",
+            "count":"14"
+        },
+        {
+            "name":"Adidas",
+            "count":"15"
+        },
+        {
+            "name":"Vans",
+            "count":"23"
+        },
+        {
+            "name":"All Stars",
+            "count":"1"
+        },
+        {
+            "name":"Adidas",
+            "count":"95"
+        }
+    ]
+}
+    

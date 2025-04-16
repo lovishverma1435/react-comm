@@ -1,10 +1,11 @@
 import React from 'react'
 import Bestsell from "../component/cards/Bestseller"
 import bestselling from "../json/bestseeling.json"
+import selling from "../json/bestsellimg.json"
 import { NavLink } from 'react-router-dom'
 
 
-const BestSeller = ({ info, data }) => {
+const BestSeller = ({ info }) => {
     return (
         <>
             <div className="container">
@@ -24,7 +25,7 @@ const BestSeller = ({ info, data }) => {
                     </div>
                     <div className="grid grid-cols-4 gap-5">
                         {
-                            data.map((item, index) => (
+                            selling.dtaa.map((item, index) => (
                                 <Bestsell key={index + Date.now() + item}
                                     image={item.image}
                                     title={item.title}
@@ -33,6 +34,7 @@ const BestSeller = ({ info, data }) => {
                                     offer={item.offer}
                                     ratting={item.ratting}
                                     hot={item.hot}
+                                    varirent={true}
                                 />
                             ))
                         }

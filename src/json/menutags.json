@@ -1,22 +1,58 @@
-[
-    {
-        "menu":"HOME",
-        "path":"/"
-    },
-    {
-        "menu":"BAGS",
-        "path":"/bags"
-    },
-    {
-        "menu":"SNEAKERS",
-        "path":"/sneakers"
-    },
-    {
-        "menu":"BELT",
-        "path":"/belt"
-    },
-    {
-        "menu":"CONTACT",
-        "path":"/contact"
-    }
-]
+{
+    "path":[
+        {
+            "menu":"HOME",
+            "path":"/"
+        },
+        {
+            "menu":"BAGS",
+            "path":"/Bags"
+        },
+        {
+            "menu":"SNEAKERS",
+            "path":"/Sneakers"
+        },
+        {
+            "menu":"BELT",
+            "path":"/Belt"
+        },
+        {
+            "menu":"CONTACT",
+            "path":"/Contect"
+        }
+    ],
+    "datacatogry":[
+        {
+            "title":"Coporate Shoes "
+        },
+        {
+            "title":"Sneakers "
+        },
+        {
+            "title":"Sandals "
+        },
+        {
+            "title":"Sport Shoe "
+        },
+        {
+            "title":"Trainers "
+        }    
+    ],
+    "datacatogryhotdeal":[
+        {
+            "title":"HOT DEAL"
+        },
+        {
+            "title":"Sunglasses"
+        },
+        {
+            "title":"Belts"
+        },
+        {
+            "title":"Handbags"
+        },
+        {
+            "title":"Sneakers "
+        }    
+    ]
+}

@@ -14,7 +14,7 @@ const Home = () => {
     <>
     <Banner/>
     <Bannerproducts/>
-    <BestSeller info={"BEST SELLER"} data= {bestsells}/>
+    <BestSeller info={"BEST SELLER"}/>
     <Adidasshoe data={adidasshoe}/>
     <Shipping/>
     <Latest/>

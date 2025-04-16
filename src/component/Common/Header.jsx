@@ -4,12 +4,14 @@ import profileicon from "../../../public/assets/Icon/profileclose2.svg"
 import carticon from "../../../public/assets/Icon/cart.svg"
 import searchicon from "../../../public/assets/Icon/searchicon.svg"
 import appicon from "../../../public/assets/Icon/appicon.svg"
+import arrow from "../../../public/assets/Icon/arrowlightwhite.svg"
 import menutags from "../../json/menutags.json"
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [isOpenlang, setIsOpenlang] = useState(false);
     const [isOpencountry, setIsOpencountry] = useState(false);
+    const [homedata, sethomedata] = useState(false)
     return (
         <>
             <div className="container">
@@ -70,23 +72,135 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center justify-between py-[26px]">
-                    <div className="flex items-center gap-1.5">
-                        <img src={appicon} alt="appicon" />
-                        <h2 className='font-poppins font-bold text-lg leading-[100%] text-primary cursor-pointer'>E-Comm</h2>
-                    </div>
-                    <div className="flex items-center gap-[98px] ">
-                        {
-                            menutags.map((item,index) => (
-                                <NavLink key={index} to={item.path}>
-                                    <h2 className='font-poppins font-medium text-2xl leading-[100%] cursor-pointer'>{item.menu}</h2>
+                <section>
+        <div className="container pb-[26.26px]">
+          <div className="flex pt-[26.26px] justify-between">
+            <div className="flex w-[134.32px] justify-between items-center">
+              <img src={appicon} alt="icon" />
+              <h4 className=' font-poppins font-bold text-[18px]  text-primary-dark'>E-comm</h4>
+            </div>
+            <div  className="flex w-[815.49px] relative justify-between items-center font-poppins font-medium text-2xl  text-primary">
+              {
+                menutags.path.map((item, index) => (
+                  <div  className='' key={Date.now() + item + index}>
+                    <NavLink className="" to={item.path}>
+                      {
 
-                                </NavLink>
+                        index === 0 ? (<>
+                          <h4 onMouseEnter={() => sethomedata(true)} className={""}>
+                            {item.menu}
+                          </h4>
+                          <div onMouseLeave={() => sethomedata(false)} className={` transition-all duration-300  ${homedata ? "block z-50" : "hidden z-0"} w-[1029px]    absolute  mx-auto left-[-290px] top-[55px] border-t-2 border-lightgray  h-[360.51px] bg-white text-primary  p-[38.82px_32.7px_3.7px_84.14px]`}>
+                      <img className='absolute top-[-11px] left-[315px]' src={arrow} alt="arrowlightwhite" />
+                      <div className="flex w-full justify-between">
+                        <div className="flex flex-col gap-[12.94px]">
+                          
+                          <h1 className='font-poppins font-[500] text-lightgray-white text-[22px]'>Category</h1>
+                          <div className="flex flex-col gap-6">
+                            {
+                              menutags.datacatogry.map((item, index) => (
+                                <div key={index}>
+                                  <Link to={"/Error"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4></Link>
 
-                            ))
-                        }
+                                </div>
+                              ))
+                            }
+
+                          </div>
+
+                        </div>
+                        <div className="flex flex-col gap-[12.94px]">
+                          <div className="flex flex-col gap-6 mt-[43.55px]">
+                            {
+                              menutags.datacatogry.map((item, index) => (
+                                <div key={index}>
+                                  <Link to={"/Error"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4></Link>
+
+                                </div>
+                              ))
+                            }
+
+                          </div>
+
+                        </div>
+                        <div className="flex flex-col gap-[12.94px]">
+                          <h1 className='font-poppins font-[500] text-lightgray-white text-[22px]'>Category</h1>
+                          <div className="flex flex-col gap-6">
+                            {
+                              menutags.datacatogryhotdeal.map((item, index) => (
+                                <div key={index}>
+                                   {
+                                    index === 0 ? (<><Link to={"/Hotdeal"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4>
+                                  </Link>
+                                    </>):<Link to={"/Error"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4>
+                                  </Link>
+                                  }
+                                </div>
+                              ))
+                            }
+
+                          </div>
+
+                        </div>
+                        <div className="flex flex-col gap-[12.94px]">
+                          <div className="flex flex-col gap-6 mt-[43.55px]">
+                            {
+                              menutags.datacatogryhotdeal.map((item, index) => (
+                                <div key={index}>
+                                  {
+                                    index === 0 ? (<><Link to={"/Hotdeal"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4>
+                                  </Link>
+                                    </>):<Link to={"/Error"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4>
+                                  </Link>
+                                  }
+                                  
+
+                                </div>
+                              ))
+                            }
+
+                          </div>
+
+                        </div>
+                        <div className="flex flex-col gap-[12.94px]">
+                          <h1 className='font-poppins font-[500] text-lightgray-white text-[22px]'>Category</h1>
+                          <div className="flex flex-col gap-6">
+                            {
+                              menutags.datacatogry.map((item, index) => (
+                                <div key={index}>
+                                  <Link to={"/Error"}>
+                                  <h4 className='font-poppins  font-normal text-[16px]'>{item.title}</h4></Link>
+
+                                </div>
+                              ))
+                            }
+
+                          </div>
+
+                        </div>
+                      </div>
                     </div>
-                </div>
+
+
+
+                        </>) : <h4>{item.menu}</h4>
+                      }
+                    </NavLink>
+                  
+                  </div>
+                ))
+              }
+
+            </div>
+          </div>
+        </div>
+      </section>
             </div>
         </>
     );
