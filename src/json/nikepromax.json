@@ -1,0 +1,44 @@
+{
+    "data":[
+    {
+        "image":"NikeproImage.png",
+        "gridone":"ProductPicture02.png",
+        "gridtwo":"ProductPicture03.png",
+        "gridthree":"ProductPicture04.png",
+        "gridfour":"Productpicture05.png"
+    }
+],
+    "data1":[
+        {
+            "image":"bestProductseven.png",
+            "title":"Nike Air Max 270 React",
+            "ratting":"rate.svg",
+            "review":" 0 reviews",
+            "submitreview":" Submit a review",
+            "offprice":"$299,43",
+            "price":"$534,33",
+            "offer":"24% Off",
+            "Availability":"Availability :",
+            "instock":"In stock",
+            "Category":"Category :",
+            "Accessories":"Accessories",
+            "Freeshipping":"Free shipping"
+        }
+    ],
+    "colors":[
+            
+            {
+                "color":"#006CFF"
+            },
+            {
+                "color":"#FC3E39"
+            },
+            {
+                "color":"#171717"
+            },
+            {
+                "color":"#FFF600"
+            }
+            
+        ]  
+}

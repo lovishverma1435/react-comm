@@ -9,13 +9,26 @@ import { Link, NavLink } from 'react-router-dom'
 import Bestseller from '../../component/cards/Bestseller'
 import bestsellig from "../../json/bestsellimg.json"
 
-  
-const Bannertwo = ({data}) => {
+
+const Bannertwo = ({ data }) => {
   const [price, setPrice] = useState(13.99);
   const [isborder, setIsborder] = useState(false);
+  const [isgrid, setisgrid] = useState(true)
+  const [isrow, setisrow] = useState(false)
+
+
+
+const onrow =()=>{
+  setisgrid(false)
+ setisrow(true)
+}
+const grid=()=>{
+  setisrow(false)
+  setisgrid(true)
+}
   return (
     <>
-   <div className="flex py-[14.5px] gap-2 justify-center bg-border-gray opacity-70">
+      <div className="flex py-[14.5px] gap-2 justify-center bg-border-gray opacity-70">
         <h4 className='font-proxima font-normal text-lg text-primary-blue'>Home</h4>
         <span className='font-proxima font-normal text-lg text-light-gray'>/</span>
         <h4 className='font-proxima font-normal text-lg'>Hot Deal</h4>
@@ -126,8 +139,8 @@ const Bannertwo = ({data}) => {
             </div>
           </div>
           <div className="flex flex-col gap-[26px] pb-12">
-          <div className="flex max-w-[961px] w-full h-[298px] bg-primary-blue">
-            <div className="">
+            <div className="flex max-w-[961px] w-full h-[298px] bg-primary-blue">
+              <div className="">
                 {
                   data1.map((item, index) => (
                     <div key={index}>
@@ -140,22 +153,106 @@ const Bannertwo = ({data}) => {
                   ))
                 }
               </div>
+            </div>
+            <div className="flex bg-border-gray rounded">
+              {
+                hotdeals.types.map((item, index) => (
+                  <div key={index}>
+                    <Link to={item.path}>
+                      <div className="flex  w-[961.50px]">
+                        <div className="flex gap-12 pt-[11px] pb-[9px] pl-[13px] items-center">
+                          <div className="flex gap-1.5">
+                            <h4 className='font-proxima font-normal text-base'>{bestsellig.data2.length}</h4>
+                            <h1 className='font-proxima font-normal text-base'>{item.title}</h1>
+                          </div>
+                          <div className="flex justify-between items-center w-[421px]">
+                            <div className="flex items-center gap-3 w-[192px]">
+                              <h1 className='font-proxima font-normal w-[55px] text-base'>{item.sort}</h1>
+                              <div className="flex gap-11 p-[10px_18px]">
+                                <h1 className='font-proxima font-normal text-base'>{item.name}</h1>
+                                <img src={`public/assets/Icon/${item.image}`} alt="grid" />
+                              </div>
+                            </div>
+                            <div className="flex gap-1 items-center">
+                              <h1 className='font-proxima font-normal text-base'>{item.show}</h1>
+                              <div className="flex gap-11 p-[10px_18px]">
+                                <h4 className='font-proxima font-normal text-base'>{bestsellig.data2.length}</h4>
+                                <img src={`public/assets/Icon/${item.image}`} alt="grid" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex w-full justify-end">
+                          <button onClick={grid}>
+                          <img className='p-[19px_17px]' src={`/public/assets/Icon/${item.grid}`} alt="" />
+                          </button>
+                          <button onClick={onrow}>
+                          <img className='p-[19px_17px]' src={`/public/assets/Icon/${item.bar}`} alt="" />
+                          </button>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                ))
+              }
+            </div>
+            <div className={`${isgrid ? "block " :"hidden"} grid grid-cols-3 gap-5 `}>
+              {
+                bestsellig.data2.map((item, index) => (
+                  <Bestseller image={item.image}
+                    title={item.title}
+                    offprice={item.offprice}
+                    price={item.price}
+                    offer={item.offer}
+                    ratting={item.ratting}
+                    hot={item.hot}
+                    varirent={false} />
+                ))
+              }
+            </div>
+            <div className={`${isrow ? "block z-50" : "hidden -z-10"} flex flex-col` }>
+              {
+                bestsellig.data3.map((item, index) => (
+                  <div className={`max-w-[870px] w-full border-border-gray pt-[30px] pb-[26px] flex  ${index <= 2 ? "border-b-2 " :"border-none"}`} key={index}>
+                    <Link to={item.path}>
+                      <div className="flex gap-[14px]">
+                        {<> <Link to={"/nikeairmax"}>
+                          <img src={`/public/assets/Images/${item.image}`} alt="image" />
+                        </Link></>
+                        }
+                        
+                        <div className="flex flex-col">
+                          <h1 className='font-poppins font-medium text-2xl text-primary'>{item.title}</h1>
+                          <div className="flex items-center pt-[14px] pb-5 border-b-2 border-border-gray max-w-[470px] w-full gap-[15px]">
+                            <img className='max-w-[72px] w-full' src={`/public/assets/Icon/${item.ratting}`} alt="image" />
+                            <h4 className='font-proxima font-normal text-sm text-light-gray'>{item.review}</h4>
+                            <h4 className='font-proxima font-normal text-sm text-primary-blue'>{item.submitreview}</h4>
+                          </div>
+                          <div className="flex pt-[10px] pb-5 items-center gap-[9px]">
+                            <h4 className='font-poppins font-bold text-xl tracking-[0.5px] text-primary-blue leading-[180%]'>{item.offprice}</h4>
+                            <h4 className='font-poppins font-medium text-sm tracking-[0.5px] text-natural-gray leading-[150%] line-through'>{item.price}</h4>
+                            <h4 className='font-poppins font-bold text-sm tracking-[0.5px] text-primary-red leading-[150%]'>{item.offer}</h4>
+                          </div>
+                          <h4 className='font-poppins font-medium text-sm text-primary max-w-[652px] w-full'>{item.description}</h4>
+                          <div className="flex items-center gap-4">
+                          <button className="flex items-center gap-2 bg-[rgba(135,206,235,0.1)]  max-w-[150px] w-full py-[15px] justify-center rounded">
+                            <img src={`/public/assets/Icon/${item.cart}`} alt="image" />
+                            <h4 className='font-poppins font-medium text-sm text-primary-blue'>{item.addtocart}</h4>
+                          </button>
+                          <div className="flex bg-[rgba(135,206,235,0.1)] p-[15px_26px_15px_20px]  rounded">
+                            <img src={`/public/assets/Icon/${item.wishlist}`} alt="image" />
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </Link>
+                  </div>
+                ))
+              }
+            </div>
           </div>
-          <div className="grid grid-cols-3 gap-5">
-            {
-              bestsellig.data2.map((item, index) => (
-                <Bestseller image={item.image}
-                  title={item.title}
-                  offprice={item.offprice}
-                  price={item.price}
-                  offer={item.offer}
-                  ratting={item.ratting}
-                  hot={item.hot}
-                  varirent={false} />
-              ))
-            }
-          </div>
-        </div></div>
+        </div>
       </div>
     </>
   )
