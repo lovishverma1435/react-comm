@@ -1,44 +1,76 @@
 {
-    "data":[
-    {
-        "image":"NikeproImage.png",
-        "gridone":"ProductPicture02.png",
-        "gridtwo":"ProductPicture03.png",
-        "gridthree":"ProductPicture04.png",
-        "gridfour":"Productpicture05.png"
-    }
-],
-    "data1":[
+    "data": [
         {
-            "image":"bestProductseven.png",
-            "title":"Nike Air Max 270 React",
-            "ratting":"rate.svg",
-            "review":" 0 reviews",
-            "submitreview":" Submit a review",
-            "offprice":"$299,43",
-            "price":"$534,33",
-            "offer":"24% Off",
-            "Availability":"Availability :",
-            "instock":"In stock",
-            "Category":"Category :",
-            "Accessories":"Accessories",
-            "Freeshipping":"Free shipping"
+            "image": "NikeproImage.png",
+            "gridone": "ProductPicture02.png",
+            "gridtwo": "ProductPicture03.png",
+            "gridthree": "ProductPicture04.png",
+            "gridfour": "Productpicture05.png"
         }
     ],
-    "colors":[
+    "data1": [
+        {
+            "image": "bestProductseven.png",
+            "title": "Nike Air Max 270 React",
+            "ratting": "rate.svg",
+            "review": " 0 reviews",
+            "submitreview": " Submit a review",
+            "offprice": "$299,43",
+            "price": "$534,33",
+            "offer": "24% Off",
+            "Availability": "Availability :",
+            "instock": "In stock",
+            "Category": "Category :",
+            "Accessories": "Accessories",
+            "Freeshipping": "Free shipping"
+        }
+    ],
+    "colors": [
+        {
+            "color": "#006CFF"
+        },
+        {
+            "color": "#FC3E39"
+        },
+        {
+            "color": "#171717"
+        },
+        {
+            "color": "#FFF600"
+        }
+    ],
+    "nextshoe": [
+        {
+            "title": "BestSeller",
+            "image": "imageProductright.png",
+            "ratting": "rate.svg",
+            "offprice": "$499",
+            "price": "$599"
+        }
+    ],
+    "infromation":[
+        {
+            "info":"Product Infomation",
+            "value":"0"
             
-            {
-                "color":"#006CFF"
-            },
-            {
-                "color":"#FC3E39"
-            },
-            {
-                "color":"#171717"
-            },
-            {
-                "color":"#FFF600"
-            }
+        },
+        {
+            "info":"Reviews",
+            "value":"1"
+
             
-        ]  
+        },
+        {
+            "info":"Another Tab",
+            "value":"2"
+
+        }
+    ],
+    "info":[
+        {
+            "firstinfo":"air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
+            "secondinfo":"air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites.",
+            "thirdinfo":"air max are always very comfortable fit, clean and just perfect in every way. just the box was too small and scrunched the sneakers up a little bit, not sure if the box was always this small but the 90s are and will always be one of my favorites."
+        }
+    ]
 }

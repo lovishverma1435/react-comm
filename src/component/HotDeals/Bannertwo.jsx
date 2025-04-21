@@ -10,15 +10,17 @@ import Bestseller from '../../component/cards/Bestseller'
 import bestsellig from "../../json/bestsellimg.json"
 
 
-const Bannertwo = ({ data }) => {
+const Bannertwo = () => {
   const [price, setPrice] = useState(13.99);
   const [isborder, setIsborder] = useState(false);
   const [isgrid, setisgrid] = useState(true)
   const [isrow, setisrow] = useState(false)
+  const [data,setdata] = useState(false)
 
 
 
 const onrow =()=>{
+
   setisgrid(false)
  setisrow(true)
 }
@@ -47,7 +49,7 @@ const grid=()=>{
                           {
                             hotdeals.titles.map((item, index) => (
                               <div className='flex justify-between items-center ' key={index}>
-                                <h4 className='font-proxima font-normal text-lg text-primary'>{item.name}</h4>
+                                <h4 onClick={() => setdata(index)} className={`font-proxima font-normal text-lg text-primary ${data === index && "text-primary-blue"}`}>{item.name}</h4>
                                 <h4 className='font-proxima font-normal text-lg text-primary opacity-35'>{item.count}</h4>
                               </div>
                             ))
@@ -235,11 +237,11 @@ const grid=()=>{
                           </div>
                           <h4 className='font-poppins font-medium text-sm text-primary max-w-[652px] w-full'>{item.description}</h4>
                           <div className="flex items-center gap-4">
-                          <button className="flex items-center gap-2 bg-[rgba(135,206,235,0.1)]  max-w-[150px] w-full py-[15px] justify-center rounded">
+                          <button className="flex items-center gap-2 bg-bg-blue  max-w-[150px] w-full py-[15px] justify-center rounded">
                             <img src={`/public/assets/Icon/${item.cart}`} alt="image" />
                             <h4 className='font-poppins font-medium text-sm text-primary-blue'>{item.addtocart}</h4>
                           </button>
-                          <div className="flex bg-[rgba(135,206,235,0.1)] p-[15px_26px_15px_20px]  rounded">
+                          <div className="flex bg-bg-blue p-[15px_26px_15px_20px]  rounded">
                             <img src={`/public/assets/Icon/${item.wishlist}`} alt="image" />
                           </div>
                           </div>
