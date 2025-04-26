@@ -1,11 +1,17 @@
 {
     "data": [
         {
-            "image": "NikeproImage.png",
-            "gridone": "ProductPicture02.png",
-            "gridtwo": "ProductPicture03.png",
-            "gridthree": "ProductPicture04.png",
-            "gridfour": "Productpicture05.png"
+            "img": "ProductPicture02.png"
+        },
+        {
+
+            "img": "ProductPicture03.png"
+        },
+        {
+            "img": "ProductPicture04.png"
+        },
+        {
+            "img": "Productpicture05.png"
         }
     ],
     "data1": [

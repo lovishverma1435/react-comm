@@ -8,6 +8,7 @@ import bagcard from "../component/cards/Bestseller"
 import { Link, NavLink } from 'react-router-dom'
 import Bestseller from '../component/cards/Bestseller'
 import bestsellig from "../json/bestsellimg.json"
+import PageNotFound from '../component/Error/PageNotFound'
 const Bag = ({ data }) => {
   const [price, setPrice] = useState(13.99);
   const [isborder, setIsborder] = useState(false);
@@ -156,6 +157,7 @@ const Bag = ({ data }) => {
           </div>
         </div></div>
       </div> */}
+      {/* <PageNotFound/> */}
     </>
   )
 }

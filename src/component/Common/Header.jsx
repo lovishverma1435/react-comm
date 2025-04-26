@@ -83,7 +83,7 @@ const Header = () => {
                 {
                   menutags.path.map((item, index) => (
                     <div className='' key={Date.now() + item + index}>
-                      <NavLink className="" to={item.path}>
+                      <NavLink className="" to={index == 1 ? "/Error" : item.path}>
                         {
 
                           index === 0 ? (<>

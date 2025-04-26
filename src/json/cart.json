@@ -1,0 +1,58 @@
+{
+    "data1":[
+        {
+            "product":"PRODUCT",
+            "price":"PRICE",
+            "quantity":"QTY",
+            "unitprice":"UNIT PRICE"
+        }
+    ],
+    "cartprod":[
+        {
+            "del":"del.svg",
+            "image":"ProductsmallImage.png",
+            "title":"Nike Airmax 270 react",
+            "price":499,
+            "unitprice":499
+        },
+        {
+            "del":"del.svg",
+            "image":"imagesmallProduct1.png",
+            "title":"Nike Airmax 270 react",
+            "price":499,
+            "unitprice":499
+        }
+    ],
+    "checklist":[
+        {
+            "title":"Subtotal",
+            "data":"$998"
+        },
+        {
+            "title":"Shipping fee",
+            "data":"$20"
+        },
+        {
+            "title":"Coupan",
+            "data":"No"
+        },
+        {
+            "total":"Total",
+            "totalprice":"$1018"
+        }
+    ],
+    "makepayment":[
+        {
+            "image":"creditCard.svg",
+            "title":"Credit Card Or Debit"
+        },
+        {
+            "image":"Paypalsmall.svg",
+            "title":"Paypal"
+        },
+        {
+            "image":"Bank.svg",
+            "title":"Bank Transfer"
+        }
+    ]
+}

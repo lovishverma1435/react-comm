@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import latest from "../json/latestnews.json"
 import { Link } from 'react-router-dom'
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Latestnews = () => {
+    useEffect(() => {
+        Aos.init({
+          duration: 1000,
+          once: false,
+          offset: 0,  
+        });
+      
+        const handleScroll = () => {
+          Aos.refresh();
+        };
+      
+        window.addEventListener("scroll", handleScroll);
+      
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
     return (
         <>
             <div className="container">
+                <div className="" data-aos="flip-right">
                 <div className="flex w-full justify-center pb-[72px] ">
                     <h1 className='font-poppins font-semibold text-[34px]'>LATEST NEWS</h1>
                 </div>
@@ -26,6 +46,7 @@ const Latestnews = () => {
                         ))
                     }
                 </div>
+            </div>
             </div>
         </>
     )

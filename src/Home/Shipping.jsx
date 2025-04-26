@@ -1,12 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import shipping from "../json/shipping.json"
 import { Link } from 'react-router-dom'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Shipping = () => {
+     useEffect(() => {
+            Aos.init({
+              duration: 1000,
+              once: false,
+              offset: 0,  
+            });
+          
+            const handleScroll = () => {
+              Aos.refresh();
+            };
+          
+            window.addEventListener("scroll", handleScroll);
+          
+            return () => {
+              window.removeEventListener("scroll", handleScroll);
+            };
+          }, []);
   return (
     <>
      <div className="container">
-        <div className="flex mt-[97px] mb-[121px]">
+        <div className="flex mt-[97px] mb-[121px]" data-aos="flip-left">
             <div className="flex w-full justify-evenly">
                 {
                     shipping.map((item,index) => (

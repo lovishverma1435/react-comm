@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Adidasshoe from "../component/cards/Adidasshoe"
 import { Link } from 'react-router-dom'
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Adidasshoes = ({ data }) => {
+      useEffect(() => {
+            Aos.init({
+              duration: 1000,
+              once: false,
+              offset: 0,  
+            });
+          
+            const handleScroll = () => {
+              Aos.refresh();
+            };
+          
+            window.addEventListener("scroll", handleScroll);
+          
+            return () => {
+              window.removeEventListener("scroll", handleScroll);
+            };
+          }, []);
     return (
         <>
                 <div className="flex max-w-[1920px] w-full mt-[92px] bg-primary-blue">
             <div className="container">
-                    <div className="">
+                    <div className=""data-aos="fade-down-left">
                         {
                             data.map((item, index) => (
                                 <div key={index}>

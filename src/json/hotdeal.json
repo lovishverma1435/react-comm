@@ -40,9 +40,8 @@
         "sort":"Sort By",
         "name":"Name",
         "image":"arrowdown.svg",
-        "show":"Show",
-        "grid":"icondots.svg",
-        "bar":"iconbar.svg"
+        "show":"Show"
+        
     }
    
     ]

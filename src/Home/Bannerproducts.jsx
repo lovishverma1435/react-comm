@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import bag from "../../public/assets/Images/bagproduct.png"
 import shoe from "../../public/assets/Images/shoeproduct.png"
 import redshoe from "../../public/assets/Images/redshoeproduct.png"
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Bannerproducts = () => {
+     useEffect(() => {
+            Aos.init({
+              duration: 1000,
+              once: false,
+              offset: 0,  
+            });
+          
+            const handleScroll = () => {
+              Aos.refresh();
+            };
+          
+            window.addEventListener("scroll", handleScroll);
+          
+            return () => {
+              window.removeEventListener("scroll", handleScroll);
+            };
+          }, []);
     return (
         <>
             <div className="container relative">
-                <div className="flex absolute -top-[90px] bg-light-white rounded">
+                <div className="flex absolute -top-[90px] bg-light-white rounded" data-aos="fade-down-left">
                     <div className="relative rounded-[5px] ">
                         <h1 className='absolute font-poppins font-bold text-xl leading-[150%] tracking-[0.5px] top-[29px] left-[52px] max-w-[202px] w-full'>FS - QUILTED MAXI CROSS BAG</h1>
                         <div className="">

@@ -13,6 +13,7 @@ const Contact = () => {
             <div className="container py-[135px]">
                 <div className="flex border-2 border-border-gray">
                     <div className="flex max-w-[646px] h-[716px] w-full bg-primary-blue relative ">
+                        <span className="w-[130px] h-[130px]  bg-primary-blue top-[291px] -right-5 absolute z-10 rounded-full"></span>
                         {
                             contact.map((item, index) => (
                                 <div key={index}>
@@ -27,13 +28,14 @@ const Contact = () => {
                                                 <h4 className='absolute top-96 right-[178px] text-white font-medium text-sm font-poppins'>{item.phone}</h4>
                                                 <h4 className='absolute bottom-64 right-[112px] max-w-[200px] w-full text-white font-medium text-sm font-poppins'>{item.address}</h4>
                                             </div>
+
                                         </div>
                                     </Link>
                                 </div>
                             ))
                         }
                     </div>
-                    <div className="flex flex-col pl-10 gap-[21px]">
+                    <div className="flex flex-col pl-10 gap-[22px]">
                             <div className="flex flex-col pt-24 gap-1">
                                 <h4 className='font-poppins font-medium text-sm text-primary'>Full Name</h4>
                                 <input className='outline-0 border-2 border-border-gray w-[510px] pt-6 pb-5 pl-7 font-poppins font-medium text-base text-primary' type="text" placeholder='Your Name' />

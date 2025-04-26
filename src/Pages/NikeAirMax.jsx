@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import nikepro from "../json/nikepromax.json"
 import { Link } from 'react-router-dom'
+
 import bestselling from "../json/bestsellimg.json"
 import BestNikeJson from "../component/cards/Bestseller"
 
@@ -9,6 +10,8 @@ const NikeAirMax = ({ info }) => {
     const [isrotate, setisrotate] = useState(false)
     const [iscount, setiscount] = useState(1)
     const [isindex, setindex] = useState(0)
+    const [isImage, setImage] = useState(nikepro.data[2].img)
+
     return (
         <>
             <div className="flex py-[14.5px] gap-2 justify-center bg-border-gray opacity-70">
@@ -21,23 +24,16 @@ const NikeAirMax = ({ info }) => {
             <div className="container ">
                 <div className="flex pt-[42px]">
                     <div className="flex flex-col ">
-                        {
-                            nikepro.data.map((item, index) => (
-                                <div key={index}>
-                                    <Link to={item.path}>
-                                        <div className="flex flex-col gap-[134px]">
-                                            <img src={`/public/assets/Images/${item.image}`} alt="Image" />
-                                            <div className="flex gap-[15.50px]">
-                                                <img src={`/public/assets/Images/${item.gridone}`} alt="Image" />
-                                                <img src={`/public/assets/Images/${item.gridtwo}`} alt="Image" />
-                                                <img src={`/public/assets/Images/${item.gridthree}`} alt="Image" />
-                                                <img src={`/public/assets/Images/${item.gridfour}`} alt="Image" />
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            ))
-                        }
+                        <img className={'object-contain max-w-[375px] w-full h-[272px] bg-border-gray'} src={`/public/assets/Images/${isImage}`} />
+                        <div className="flex gap-[15.50px] pt-[150px] w-full">
+                            {
+                                nikepro.data.map((item, index) => (
+                                    <div key={index}>
+                                        <img onClick={() => setImage(item.img)} className='max-w-[86px] w-full cursor-pointer hover:border-2 hover:border-primary-blue rounded' src={`/public/assets/Images/${item.img}`} alt="Image" />
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
                     <div className="flex flex-col pl-9">
                         {
@@ -68,14 +64,14 @@ const NikeAirMax = ({ info }) => {
                                 </div>
                             ))
                         }
-                        <div className="flex items-center gap-5 pt-6">
+                        <div className="flex items-center gap-5 pt-6 ">
                             <h4 className='font-poppins font-normal text-base text-primary pr-8'>Select Color :</h4>
                             {
                                 nikepro.colors.map((item, index) => (
                                     <Fragment key={index}>
 
                                         <div
-                                            className="flex items-center w-5 h-5 justify-center rounded-full"
+                                            className="flex items-center w-5 h-5 justify-center rounded-full "
                                             style={{ border: `2px solid  ${isborder === index ? item?.color : "transparent"}` }}
                                         >
                                             <button
@@ -89,10 +85,10 @@ const NikeAirMax = ({ info }) => {
                                 ))
                             }
                         </div>
-                        <div className="flex pt-[22px] gap-24 items-center relative  border-b-2 border-border-gray w-[500px] pb-[22px]">
+                        <div className="flex pt-[22px] gap-24 items-center relative  border-b-2 border-border-gray w-[500px] pb-[22px] ">
                             <h4 className='font-poppins font-normal text-base'>Size :</h4>
                             <button >
-                                <div className="flex gap-11 border-2 border-lightborder-gray p-[10px_18px_11px_16px] rounded">
+                                <div className="flex gap-11 border-2 border-lightborder-gray p-[10px_18px_11px_16px] rounded cursor-pointer">
                                     <h4 className='font-proxima font-normal text-sm'>XS</h4>
                                     <button onClick={() => (
                                         setisrotate(!isrotate)
@@ -114,26 +110,28 @@ const NikeAirMax = ({ info }) => {
                         </div>
                         <div className="flex items-center py-5 gap-[151px] ">
                             <div className="flex items-center gap-[30px] max-w-[124px] w-full p-[13px_18px_16px_18px] bg-light-white rounded ">
-                                <button onClick={() => setiscount(iscount > 1 ? iscount - 1 : 1)}> <img src="/public/assets/Icon/minus.svg" alt="svg" /> </button>
+                                <button className='cursor-pointer' onClick={() => setiscount(iscount > 1 ? iscount - 1 : 1)}> <img src="/public/assets/Icon/minus.svg" alt="svg" /> </button>
                                 <h4>{iscount}</h4>
-                                <button onClick={() => setiscount(iscount < 9 ? iscount + 1 : 9)}> <img src="/public/assets/Icon/plus.svg" alt="svg" /> </button>
+                                <button className='cursor-pointer' onClick={() => setiscount(iscount < 9 ? iscount + 1 : 9)}> <img src="/public/assets/Icon/plus.svg" alt="svg" /> </button>
                             </div>
                             <div className="flex gap-[17px] items-center">
-                                <button className='flex max-w-[160px] w-full gap-4 p-[16px_16px_16px_21px] bg-bg-blue rounded'>
-                                    <img src="/public/assets/Icon/cart2.svg" alt="cart" />
-                                    <h2 className='font-proxima font-normal text-base text-primary-blue'>Add To Cart</h2>
-                                </button>
-                                <div className="flex bg-bg-blue p-[21px_21px_21px_21px]    rounded">
+                                {<Link to={"/cart"}>
+                                    <button
+                                        className='flex max-w-[160px] w-full gap-4 p-[16px_16px_16px_21px] bg-bg-blue rounded cursor-pointer'>
+                                        <img src="/public/assets/Icon/cart2.svg" alt="cart" />
+                                        <h2 className='font-proxima font-normal text-base text-primary-blue text-nowrap'>Add To Cart</h2>
+                                    </button></Link>}
+                                <div className="flex bg-bg-blue p-[18px_18px_18px_18px] cursor-pointer   rounded">
                                     <img src="/public/assets/Icon/hearts.svg" alt="image" />
                                 </div>
                             </div>
                         </div>
                         <div className="flex border-t-2 border-border-gray w-[500px] pt-[22px] gap-[11px] ">
-                            <button className='flex max-w-[245px] w-full bg-fb-blue rounded gap-3 p-[14px_30px_17px_34px]'>
+                            <button className='flex max-w-[245px] w-full bg-fb-blue rounded gap-3 p-[14px_30px_17px_34px] cursor-pointer'>
                                 <img src="/public/assets/Icon/facebook1.svg" alt="" />
                                 <h4 className='font-poppins font-medium text-base text-white'>Share on Facebook</h4>
                             </button>
-                            <button className='flex max-w-[245px] w-full bg-primary-blue rounded gap-3 p-[14px_30px_17px_34px]'>
+                            <button className='flex max-w-[245px] w-full bg-primary-blue rounded gap-3 p-[14px_30px_17px_34px] cursor-pointer'>
                                 <img src="/public/assets/Icon/twitter1.svg" alt="" />
                                 <h4 className='font-poppins font-medium text-base text-white'>Share on Twitter</h4>
                             </button>
@@ -196,15 +194,15 @@ const NikeAirMax = ({ info }) => {
                         )
                     }{
                         isindex == 1 && (
-                            <h1>Coming Soon</h1>
+                            <h1 className='font-poppins font-normal text-[12px] leading-[180%] text-neutral-gray tracking-[0.5px] pl-[31px] pt-[21px]'>Coming Soon</h1>
                         )
                     }{
                         isindex == 2 && (
-                            <h1>Not available</h1>
+                            <h1 className='font-poppins font-normal text-[12px] leading-[180%] text-neutral-gray tracking-[0.5px] pl-[31px] pt-[21px]'>Not available</h1>
                         )
                     }
                 </div>
-                <div className="flex flex-col items-center gap-[26px]">
+                <div className="flex flex-col items-center gap-[83px] pb-[86px]">
                     <h1 className='font-poppins font-semibold text-[35px] leading-[100%]'>{info}</h1>
                     <div className="grid grid-cols-4 gap-5">
                         {
@@ -219,9 +217,11 @@ const NikeAirMax = ({ info }) => {
                                     hot={item.hot}
                                     varirent={true}
                                 />
+                          
                             ))
                         }
                     </div>
+                   
                 </div>
             </div>
         </>

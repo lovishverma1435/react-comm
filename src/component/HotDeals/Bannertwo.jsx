@@ -1,33 +1,56 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Adidasshoes from '../../component/cards/Adidasshoe'
 import data1 from "../../json/adidasshoe.json"
 import hotdeals from "../../json/hotdeal.json"
 import color from "../../json/color.json"
 import brand from "../../json/brand.json"
-import bagcard from "../../component/cards/Bestseller"
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Bestseller from '../../component/cards/Bestseller'
 import bestsellig from "../../json/bestsellimg.json"
-
+import dots from "/assets/Icon/ninedots.svg"
+import dotcolor from "../../../public/assets/Icon/ninedotscolor.svg"
+import bar from "../../../public/assets/Icon/bar.svg"
+import barcolor from "../../../public/assets/Icon/barcolor.svg"
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Bannertwo = () => {
   const [price, setPrice] = useState(13.99);
   const [isborder, setIsborder] = useState(false);
   const [isgrid, setisgrid] = useState(true)
   const [isrow, setisrow] = useState(false)
-  const [data,setdata] = useState(false)
+  const [data, setdata] = useState(false)
+    const [click, setClick] = useState(2)
 
 
+  const onrow = () => {
+    setisrow(true)
+    setisgrid(false)
+  }
 
-const onrow =()=>{
+  const grid = () => {
+    setisgrid(true)
+    setisrow(false)
+  }
 
-  setisgrid(false)
- setisrow(true)
-}
-const grid=()=>{
-  setisrow(false)
-  setisgrid(true)
-}
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      once: false,
+      offset: 0,
+    });
+
+    const handleScroll = () => {
+      Aos.refresh();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <div className="flex py-[14.5px] gap-2 justify-center bg-border-gray opacity-70">
@@ -38,7 +61,7 @@ const grid=()=>{
       <div className="container">
         <div className="flex gap-[31.32px] mt-[52px]">
           <div className="flex flex-col max-w-[270px] w-full gap-4">
-            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded ">
+            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded " data-aos="fade-right">
               {
                 hotdeals.heading.map((item, index) => (
                   <div key={index}>
@@ -61,7 +84,7 @@ const grid=()=>{
                 ))
               }
             </div>
-            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5">
+            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5" data-aos="fade-right">
               <h1 className='font-poppins font-medium text-lg text-primary'>Prices</h1>
               <div className="flex w-full justify-between">
                 <h4 className='font-proxima font-normal text-lg text-primary'>Range:</h4>
@@ -93,7 +116,7 @@ const grid=()=>{
   "
               />
             </div>
-            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5">
+            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5" data-aos="fade-right">
               <h1 className='font-poppins font-medium text-lg text-primary'>Color</h1>
               <div className="flex gap-2">
                 {
@@ -118,7 +141,7 @@ const grid=()=>{
                 }
               </div>
             </div>
-            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5">
+            <div className="flex flex-col max-w-[270px] w-full bg-border-gray p-[19px_15px_26px_20px] rounded gap-5" data-aos="fade-right">
               <h1 className='font-poppins font-medium text-lg text-primary'>Brand</h1>
 
               <div className="flex flex-col gap-5">
@@ -141,7 +164,7 @@ const grid=()=>{
             </div>
           </div>
           <div className="flex flex-col gap-[26px] pb-12">
-            <div className="flex max-w-[961px] w-full h-[298px] bg-primary-blue">
+            <div className="flex max-w-[961px] w-full h-[298px] bg-primary-blue"  data-aos="fade-left">
               <div className="">
                 {
                   data1.map((item, index) => (
@@ -156,7 +179,7 @@ const grid=()=>{
                 }
               </div>
             </div>
-            <div className="flex bg-border-gray rounded">
+            <div className="flex bg-border-gray rounded" data-aos="fade-left">
               {
                 hotdeals.types.map((item, index) => (
                   <div key={index}>
@@ -186,10 +209,11 @@ const grid=()=>{
                         </div>
                         <div className="flex w-full justify-end">
                           <button onClick={grid}>
-                          <img className='p-[19px_17px]' src={`/public/assets/Icon/${item.grid}`} alt="" />
+
+                            <img src={isgrid ? dotcolor : dots} className="p-[19px_17px] cursor-pointer" />
                           </button>
                           <button onClick={onrow}>
-                          <img className='p-[19px_17px]' src={`/public/assets/Icon/${item.bar}`} alt="" />
+                            <img src={isrow ? barcolor : bar} className="p-[19px_17px] cursor-pointer" />
                           </button>
                         </div>
                       </div>
@@ -198,7 +222,7 @@ const grid=()=>{
                 ))
               }
             </div>
-            <div className={`${isgrid ? "block " :"hidden"} grid grid-cols-3 gap-5 `}>
+            <div className={`${isgrid ? "block " : "hidden"} grid grid-cols-3 gap-5 cursor-pointer`}  data-aos="fade-left">
               {
                 bestsellig.data2.map((item, index) => (
                   <Bestseller image={item.image}
@@ -212,17 +236,19 @@ const grid=()=>{
                 ))
               }
             </div>
-            <div className={`${isrow ? "block z-50" : "hidden -z-10"} flex flex-col` }>
+
+            {/*  */}
+            <div className={`${isrow ? "block z-50" : "hidden -z-10"} flex flex-col`}  data-aos="fade-left">
               {
                 bestsellig.data3.map((item, index) => (
-                  <div className={`max-w-[870px] w-full border-border-gray pt-[30px] pb-[26px] flex  ${index <= 2 ? "border-b-2 " :"border-none"}`} key={index}>
+                  <div className={`max-w-[870px] w-full border-border-gray pt-[30px] pb-[26px] flex  ${index <= 2 ? "border-b-2 " : "border-none"}`} key={index}>
                     <Link to={item.path}>
                       <div className="flex gap-[14px]">
                         {<> <Link to={"/nikeairmax"}>
                           <img src={`/public/assets/Images/${item.image}`} alt="image" />
                         </Link></>
                         }
-                        
+
                         <div className="flex flex-col">
                           <h1 className='font-poppins font-medium text-2xl text-primary'>{item.title}</h1>
                           <div className="flex items-center pt-[14px] pb-5 border-b-2 border-border-gray max-w-[470px] w-full gap-[15px]">
@@ -237,22 +263,30 @@ const grid=()=>{
                           </div>
                           <h4 className='font-poppins font-medium text-sm text-primary max-w-[652px] w-full'>{item.description}</h4>
                           <div className="flex items-center gap-4">
-                          <button className="flex items-center gap-2 bg-bg-blue  max-w-[150px] w-full py-[15px] justify-center rounded">
-                            <img src={`/public/assets/Icon/${item.cart}`} alt="image" />
-                            <h4 className='font-poppins font-medium text-sm text-primary-blue'>{item.addtocart}</h4>
-                          </button>
-                          <div className="flex bg-bg-blue p-[15px_26px_15px_20px]  rounded">
-                            <img src={`/public/assets/Icon/${item.wishlist}`} alt="image" />
-                          </div>
+                            <button className="flex items-center gap-2 bg-bg-blue  max-w-[150px] w-full py-[15px] justify-center rounded">
+                              <img src={`/public/assets/Icon/${item.cart}`} alt="image" />
+                              <h4 className='font-poppins font-medium text-sm text-primary-blue'>{item.addtocart}</h4>
+                            </button>
+                            <div className="flex bg-bg-blue p-[15px_26px_15px_20px]  rounded">
+                              <img src={`/public/assets/Icon/${item.wishlist}`} alt="image" />
+                            </div>
                           </div>
                         </div>
                       </div>
-                      
+
                     </Link>
                   </div>
                 ))
               }
             </div>
+             {/* Pagination */}
+             <div className="flex justify-center bg-border-gray gap-1">
+                        {["1", "2", "3", "4", "5"].map((item, index) => (
+                            <button onClick={() => setClick(index)}>
+                                <p className={`py-4 px-[25px] ${click === index && "bg-primary-blue "}`}>{item}</p>
+                            </button>
+                        ))}
+                    </div>
           </div>
         </div>
       </div>
