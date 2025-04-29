@@ -1,65 +1,155 @@
-import React from 'react'
-// import cart from "../../json/cart.json"
-import { Link } from 'react-router-dom'
-
-
-const Popus = ({ ondata, data }) => {
-    return (
-        <>
-            <div className=" max-w-[1024px] w-full z-10 bg-light-blue rounded">
-                <div className="flex justify-between w-full ">
-                    <img onClick={ondata} className='pt-[42px] pl-[68px] cursor-pointer' src="/assets/Icon/leftarrow.svg" alt="svg" />
-                    <img onClick={ondata} className='pt-[42px] pr-[68px] cursor-pointer' src="/assets/Icon/times.svg" alt="svg" />
+import React, { useState } from "react";
+import backimg from "../../../public/assets/Icon/leftarrow.svg";
+import cross from "../../../public/assets/Icon/times.svg";
+import cartjson from "../../json/cart.json"
+import Carddetails from "./Carddetails";
+import Confirm from "./Confirm";
+import Input from "./Input";
+const Popupcart = ({ data }) => {
+  const [button,setbutton]=useState(0)
+        const [click, setclick] = useState(false);
+  
+  return (
+    <>
+      <section>
+        <main>
+          <div className="w-[1021px]  bg-white p-[41.19px_97.59px_78.34px_68.23px] rounded">
+            <div className="flex flex-col">
+              <div className="flex w-full justify-between items-center pb-0.5">
+                <div onClick={()=>(button === 1 ? setbutton(false)  : button ===2  ?  setbutton(1) : setbutton(false))} className="w-[40px] h-[40px] cursor-pointer flex justify-center items-center">
+                  <img  src={backimg} alt="back" />
                 </div>
-                <div className="flex justify-center pb-11">
-                    <h1 className='font-poppins font-semibold text-[32px] text-primary-blue'>Make Payment</h1>
+                <div
+                  onClick={data}
+                  className="w-[40px] h-[40px] cursor-pointer  flex justify-center items-center"
+                >
+                  <img src={cross} alt="cross" />
                 </div>
-                <div className="flex justify-center gap-4 items-center cursor-pointer relative ">
-                    <div className="flex w-9 h-9 bg-[#DFDEDE] hover:bg-primary-blue rounded-full ">
-                        <p className='m-auto font-poppins font-bold text-white text-lg tracking-[-2%]'>1</p>
-                    </div>
-                    <div className="flex w-9 h-9 bg-[#DFDEDE] hover:bg-primary-blue rounded-full">
-                        <p className='m-auto  font-poppins font-bold text-white text-lg tracking-[-2%]'>2</p>
-                    </div>
-                    <div className="flex w-9 h-9 bg-[#DFDEDE] hover:bg-primary-blue rounded-full">
-                        <p className='m-auto  font-poppins font-bold text-white text-lg tracking-[-2%]'>3</p>
-                    </div>
-                    <span className='border-b-2 border-[#DFDEDE] max-w-[122px] w-full absolute top-1/2 -z-10'></span>
-                </div>
-                <div className="flex justify-between pt-10 px-[72px]" >
-                    <input className='outline-0 border-2 border-border-gray  py-[14px] px-4  max-w-[381px] w-full text-primary rounded' type="text" placeholder='first Name' />
-                    <input className='outline-0 border-2 border-border-gray py-[14px] px-4  max-w-[381px] w-full text-primary rounded' type="text" placeholder='Last Name' />
-                </div>
-                <div className="flex justify-between pt-10 px-[72px]" >
-                    <div className="flex flex-col  max-w-[381px] w-full  gap-10">
-                        <input className='outline-0 border-2 border-border-gray py-[14px] px-4  text-primary rounded' type="text" placeholder='Email Address' />
-                        <h1 className='text-primary-blue font-poppins font-semibold text-xl '>Select Method Of Payment</h1>
-                    </div>
-                    <div className="max-w-[381px] w-full flex">
-                        <textarea className='outline-0 border-2 border-border-gray py-[26px] px-4 w-full text-primary rounded ' type="text" placeholder='Address for Delivery' />
-                    </div>
-                </div>
-                <div className="flex flex-col max-w-[378px] w-full mt-4 pl-[72px] ">
-                    {
-                        data.map((item, index) => (
-                            <Link key={index + item - Date.now()} to={item.path}>
-                                <div className="flex justify-between p-4">
-                                    <div className="flex gap-4 items-center">
-                                        <img src={`/public/assets/icon/${item.image}`} alt="" />
-                                        <h5 className='font-poppins font-bold text-xs leading-[150%] tracking-[0.5px]'>{item.title}</h5>
-                                    </div>
-                                    <input className='cursor-pointer' type="checkbox" />
-                                </div>
-                            </Link>
-                        ))
-                    }
-                </div>
-                <div className=" flex  w-full  rounded justify-center pt-7 pb-20 ">
-                    <button className='flex bg-primary-blue py-2 justify-center max-w-[300px] tracking-[-2%] w-full font-bold font-poppins text-lg text-white rounded cursor-pointer'>Go to Payment</button>
-                </div>
+              </div>
             </div>
-        </>
-    )
-}
+            <div className="flex flex-col gap-[43.22px] justify-center items-center pb-[40px]">
+              <h4 className="flex justify-center items-center text-primary-blue font-Raleway font-[600] text-[32px]">
+                Make Payment
+              </h4>
+              <div className="flex justify-between relative  w-[155px]  items-center font-Nunito font-bold text-[18px] tracking-[-2%] text-white">
+                <div className={`${ button ===2 ? "bg-primary-blue" :"bg-[#dfdede]"} w-[50px] h-[2px] absolute right-6 bg-[#dfdede]`}></div>
+                <div className={`${button===1 ? "bg-primary-blue" : button ===2 ? "bg-primary-blue" :"bg-[#dfdede]"} w-[50px] h-[2px] absolute left-6 bg-[#dfdede]`}></div>
+                <div className="bg-primary-blue z-10 w-[36px] h-[36px] rounded-full flex justify-center items-center">
+                  <h4>1</h4>
+                </div>
+                <div className={`${button===1 ? "bg-primary-blue" : button ===2 ? "bg-primary-blue" :"bg-[#dfdede]"} bg-[#dfdede] z-10 w-[36px] h-[36px] rounded-full flex justify-center items-center`}>
+                  <h4>2</h4>
+                </div>
+                <div className={`${ button ===2 ? "bg-primary-blue" :"bg-[#dfdede]"} bg-[#dfdede] z-10   w-[36px] h-[36px] rounded-full flex justify-center items-center`}>
+                  <h4>3</h4>
+                </div>
+              </div>
+            </div>
 
-export default Popus
+            {
+
+                // ///////////////////////////////////////////////////////////////////////////
+            button === 1 ?
+            
+            
+            <Carddetails valuesec={()=>setbutton(2)}/>
+            
+            //////////////////////////////////////////////////////////////////////
+            
+            : button === 2 ?  
+          <Confirm data={data}/>
+            
+            :
+            // <Paymenydetails valuefirst={()=>setbutton(1)}/>
+
+            (<>
+            
+              <div className="flex justify-between pl-[20px] pb-[27px]">
+                 <div className="flex flex-col max-w-[380px] w-full">
+                   <div className="flex flex-col gap-[33px] mb-[24px]">
+                     <Input
+                       classname={" w-full "}
+                       placeholder={"First Name"}
+                       type={"text"}
+                     />
+                     <Input
+                       classname={" w-full "}
+                       placeholder={"Email Address"}
+                       type={"email"}
+                     />
+                   </div>
+                   <div className="flex flex-col gap-[14.25px]">
+                     <h4 className="font-Raleway font-[600] text-xl text-primary-blue">
+                       Select Method of Payment
+                     </h4>
+                     <div className="flex flex-col">
+                       {cartjson.makepayment.map((item, index) => (
+                         <div key={Date.now() + item + index}>
+                           <div
+                             onClick={() => setclick(index)}
+                             className={`${
+                               click === index ? "bg-[#EBF0FF]" : "bg-white"
+                             } p-[16px_13px_16px_16.16px] flex transition-all cursor-pointer duration-200 rounded justify-between items-center `}
+                           >
+                             <div className="flex items-center gap-[19px]">
+                               <img src={`/public/assets/Icon/${item.image}`} alt="image" />
+                               <h4 className="font-poppins font-bold text-[12px] leading-[150%] tracking-[0.5px] text-natural-blue">
+                                 {item.title}
+                               </h4>
+                             </div>
+                             <div
+                               className={`${
+                                 click === index ? "bg-[#EBF0FF]" : "bg-white"
+                               } transition-all duration-200 w-[24px] h-[24px] flex justify-center items-center border-[1px] border-buttongray rounded cursor-pointer`}
+                             >
+                               {click === index ? (
+                                 <>
+                                   <img
+                                     src={"../../../public/assets/Icon/trueicon.svg"}
+                                     alt="imagestrue"
+                                   />
+                                 </>
+                               ) : (
+                                 ""
+                               )}
+                             </div>
+                           </div>
+                         </div>
+                       ))}
+                     </div>
+                   </div>
+                 </div>
+                   <div className="w-[383px]">
+                   <Input
+                       classname={" w-full mb-[39.41px] "}
+                       placeholder={"Last Name"}
+                       type={"text"}
+                     />
+                      <Input
+                       classname={" w-full p-[26px_0_75px_14px] mb-[27.49px] "}
+                       placeholder={"Address for Delivery"}
+                       type={"text"}
+                     />
+                     <Input
+                       classname={" w-full  "}
+                       placeholder={"Mobile Phone"}
+                       type={"number"}
+                     />
+                   </div>
+               </div>
+               <button onClick={()=>setbutton(1)}  className={` w-[338px] flex justify-center m-auto font-Nunito font-[800] text-2xl tracking-[-2%] items-center bg-skyblue  rounded text-white cursor-pointer h-[70px]`}>Go to Payment</button>
+              
+              </>)
+      
+            ////////////////////////////////////////////////////
+           }
+           
+        
+          </div>
+        </main>
+      </section>
+    </>
+  );
+};
+
+export default Popupcart;

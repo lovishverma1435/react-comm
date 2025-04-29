@@ -1,9 +1,11 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import nikepro from "../json/nikepromax.json"
 import { Link } from 'react-router-dom'
 
 import bestselling from "../json/bestsellimg.json"
 import BestNikeJson from "../component/cards/Bestseller"
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const NikeAirMax = ({ info }) => {
     const [isborder, setIsborder] = useState(false);
@@ -11,6 +13,24 @@ const NikeAirMax = ({ info }) => {
     const [iscount, setiscount] = useState(1)
     const [isindex, setindex] = useState(0)
     const [isImage, setImage] = useState(nikepro.data[2].img)
+
+    useEffect(() => {
+        Aos.init({
+            duration: 1000,
+            once: false,
+            offset: 0,
+        });
+
+        const handleScroll = () => {
+            Aos.refresh();
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <>
@@ -23,7 +43,7 @@ const NikeAirMax = ({ info }) => {
             </div>
             <div className="container ">
                 <div className="flex pt-[42px]">
-                    <div className="flex flex-col ">
+                    <div className="flex flex-col " data-aos="fade-right">
                         <img className={'object-contain max-w-[375px] w-full h-[272px] bg-border-gray'} src={`/public/assets/Images/${isImage}`} />
                         <div className="flex gap-[15.50px] pt-[150px] w-full">
                             {
@@ -35,7 +55,7 @@ const NikeAirMax = ({ info }) => {
                             }
                         </div>
                     </div>
-                    <div className="flex flex-col pl-9">
+                    <div className="flex flex-col pl-9" data-aos="flip-right">
                         {
                             nikepro.data1.map((item, index) => (
                                 <div key={index}>
@@ -137,7 +157,7 @@ const NikeAirMax = ({ info }) => {
                             </button>
                         </div>
                     </div>
-                    <div className="flex pl-8 ">
+                    <div className="flex pl-8 " data-aos="fade-left">
                         {
                             nikepro.nextshoe.map((item, index) => (
                                 <div key={index}>
@@ -159,7 +179,7 @@ const NikeAirMax = ({ info }) => {
                         }
                     </div>
                 </div>
-                <div className="bg-border-gray rounded relative flex flex-col  max-w-[930px] w-full mt-[49px] mb-[78px]">
+                <div className="bg-border-gray rounded relative flex flex-col  max-w-[930px] w-full mt-[49px] mb-[78px]" data-aos="fade-right">
                     <div className=" flex gap-[79px] pl-[31.82px] z-50 pt-[34.29px] border-b-4 border-bg-white ">
                         {
                             nikepro.infromation.map((item, index) => (
@@ -183,7 +203,7 @@ const NikeAirMax = ({ info }) => {
                             nikepro.info.map((item, index) => (
                                 <div key={index}>
                                     <Link to={item.path}>
-                                        <div className="max-w-[765px] w-full pl-[31px] pt-[21px] pb-[44px] gap-[15px] flex flex-col">
+                                        <div className="max-w-[765px] w-full pl-[31px] pt-[21px] pb-[44px] gap-[15px] flex flex-col" >
                                             <h4 className='font-poppins font-normal text-[12px] leading-[180%] text-neutral-gray tracking-[0.5px]'>{item.firstinfo}</h4>
                                             <h4 className='font-poppins font-normal text-[12px] leading-[180%] text-neutral-gray tracking-[0.5px]'>{item.secondinfo}</h4>
                                             <h4 className='font-poppins font-normal text-[12px] leading-[180%] text-neutral-gray tracking-[0.5px]'>{item.thirdinfo}</h4>
@@ -202,7 +222,8 @@ const NikeAirMax = ({ info }) => {
                         )
                     }
                 </div>
-                <div className="flex flex-col items-center gap-[83px] pb-[86px]">
+                <div className="flex flex-col items-center gap-[83px] pb-[86px]" data-aos="fade-up"
+                    data-aos-duration="3000">
                     <h1 className='font-poppins font-semibold text-[35px] leading-[100%]'>{info}</h1>
                     <div className="grid grid-cols-4 gap-5">
                         {
@@ -217,11 +238,11 @@ const NikeAirMax = ({ info }) => {
                                     hot={item.hot}
                                     varirent={true}
                                 />
-                          
+
                             ))
                         }
                     </div>
-                   
+
                 </div>
             </div>
         </>

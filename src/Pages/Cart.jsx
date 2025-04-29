@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import cart from "../json/cart.json"
 import { Link } from 'react-router-dom'
-import Popus from '../component/UI/Popus'
+import Popupcart from '../component/UI/Popus'
 
 const Cart = () => {
     const [Count, setCount] = useState(1)
@@ -125,11 +125,11 @@ const Cart = () => {
                             </div>
                             {
                                 isCheck && (<>
-                                    <div className="fixed  inset-0 backdrop-blur-xs z-40"></div>
+                                    <div className="fixed  inset-0 bg-[#2222224D] z-40"></div>
 
                                     {/* Popup */}
                                     <div className="fixed inset-0 flex justify-center items-center z-50">
-                                        <Popus ondata={() => setCheck(false)} data={cart.makepayment} />
+                                        <Popupcart data={() => setCheck(false)}  />
                                     </div>
                                 </>)
                             }
